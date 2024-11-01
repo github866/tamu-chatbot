@@ -4,8 +4,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-# from langchain_community.llms import Ollama
-from langchain_ollama import OllamaLLM 
+from langchain_community.llms import Ollama
+
+
 from ollama import Client
 from preprocess import load_data, preprocess_events, transform_event_to_sentence
 
