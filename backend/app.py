@@ -29,6 +29,9 @@ def helloWorld():
 
 @app.route("/get_chatbot_response", methods=["GET"])
 def get_chatbot_response():
+  return query_one()
+
+def query_one(retries=3):
   if preprocessed_events is not None and data_embeddings is not None:
     # get query and create embedding
     query = request.args.get("query")
@@ -56,6 +59,7 @@ def get_chatbot_response():
   else:
     return jsonify({"error": "Fetch errors."}), 500
   
+  
 if __name__ == "__main__":
   events = load_data(TAMU_EVENTS_URL)
   preprocessed_events = preprocess_events(events)
@@ -66,5 +70,4 @@ if __name__ == "__main__":
   data_embeddings = embedding_model.encode(texts)
   # app.run(host="0.0.0.0", port=4999, debug=True)
   port = int(os.getenv("PORT", 4999))
-  print(f"Starting app on port: {port}")
   app.run(host="0.0.0.0", port=port, debug=True)
