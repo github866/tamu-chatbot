@@ -66,4 +66,5 @@ if __name__ == "__main__":
   data_embeddings = embedding_model.encode(texts)
   # app.run(host="0.0.0.0", port=4999, debug=True)
   port = int(os.getenv("PORT", 4999))
+  print(f"Starting app on port: {port}")
   app.run(host="0.0.0.0", port=port, debug=True)
