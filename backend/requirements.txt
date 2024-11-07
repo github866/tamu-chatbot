@@ -2,8 +2,16 @@ flask
 flask-cors
 scikit-learn
 sentence-transformers
+langchain
 langchain-community
+langchain-core
+langchain-ollama
 geopandas
 matplotlib
+networkx
 node2vec
-ollama
+waitress
+numpy
+pandas
+torch
+transformers
